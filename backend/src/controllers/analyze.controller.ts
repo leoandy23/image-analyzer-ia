@@ -7,6 +7,15 @@ export const analyzeImageController = async (req: Request, res: Response) => {
     if (!req.file) {
       return res.status(400).json({ error: "No image file was provided" });
     }
+    const allowed = ["image/jpeg", "image/png", "image/jpg"];
+
+    if (!allowed.includes(req.file.mimetype)) {
+      return res.status(400).json({ error: "Invalid image format" });
+    }
+
+    if ((req as any).fileValidationError) {
+      return res.status(400).json({ error: (req as any).fileValidationError });
+    }
 
     const buffer = req.file.buffer;
 
@@ -18,7 +27,7 @@ export const analyzeImageController = async (req: Request, res: Response) => {
     console.error("Analyze error:", error);
     res.status(500).json({
       error: "Failed to analyze the image",
-      details: error.message,
+      details: error.message || "Unknown error",
     });
   }
 };
