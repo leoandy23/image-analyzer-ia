@@ -1,5 +1,6 @@
 import express, { Application } from "express";
 import cors from "cors";
+import analyzeRoute from "./routes/analyze.route";
 
 const app: Application = express();
 
@@ -11,5 +12,8 @@ app.use(express.json());
 app.get("/health", (_req, res) => {
   res.json({ status: "ok" });
 });
+
+// analyze route
+app.use("/api", analyzeRoute);
 
 export default app;
