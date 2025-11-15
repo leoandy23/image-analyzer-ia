@@ -7,10 +7,12 @@ export const analyzeImageController = async (req: Request, res: Response) => {
     if (!req.file) {
       return res.status(400).json({ error: "No image file was provided" });
     }
-    const allowed = ["image/jpeg", "image/png", "image/jpg"];
+    const allowed = ["image/jpeg", "image/png", "image/jpg", "image/webp"];
 
     if (!allowed.includes(req.file.mimetype)) {
-      return res.status(400).json({ error: "Invalid image format" });
+      return res
+        .status(400)
+        .json({ error: "Only JPG, PNG or WEBP images are allowed" });
     }
 
     if ((req as any).fileValidationError) {
