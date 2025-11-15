@@ -1,9 +1,5 @@
 import OpenAI from "openai";
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 // Function to detect image format from buffer
 const detectImageFormat = (buffer: Buffer): string => {
   if (buffer.length < 12) {
@@ -32,6 +28,9 @@ const detectImageFormat = (buffer: Buffer): string => {
 
 export const analyzeImageService = async (buffer: Buffer) => {
   try {
+    const client = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
     // Detect image format
     const realMime = detectImageFormat(buffer);
 
