@@ -8,10 +8,10 @@ RUN npm install
 
 COPY . .
 
-# Build de producción
+# Build of production
 RUN npm run build
 
-# Imagen final, usando un servidor estático muy simple
+# Final image, using a very simple static server
 FROM node:20-alpine
 
 WORKDIR /app
