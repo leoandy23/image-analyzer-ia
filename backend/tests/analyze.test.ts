@@ -2,7 +2,7 @@ import request from "supertest";
 import path from "path";
 import app from "../src/app";
 
-// mock del servicio que llama a OpenAI
+// mock of service that calls OpenAI
 jest.mock("../src/services/analyze.service", () => ({
   analyzeImageService: jest.fn().mockResolvedValue([
     { label: "Dog", confidence: 0.98 },
