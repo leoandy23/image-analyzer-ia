@@ -219,7 +219,8 @@ Tests run offline without external API calls.
 
 # 🖼️ **Image Analyzer IA - Demo**
 
-<video controls width="100%">
-    <source src="./docs/Image-Analyzer-AI.mp4" type="video/mp4">
-    Tu navegador no soporta el elemento video.
-</video>
+[Url video demo here](https://1drv.ms/v/c/fe0a5dd3f414da9f/EbmAV3qrLFBLsws0VaMyDBgB1Vl1D4FwV0pCPoWfoJdppw?e=e5uJB0)
+
+![Image Analyzer IA Demo](./docs/image-analyzer-demo-3.png)
+
+![Image Analyzer IA Demo](./docs/image-analyzer-demo-4.png)
