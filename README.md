@@ -5,9 +5,24 @@
 Image Analyzer IA is a full-stack web application that allows users to upload an image and receive visual tags powered by an AI Vision API.
 The project includes:
 
-- A **Node.js + Express** backend that processes image uploads and connects to OpenAI Vision.
-- A **React + TypeScript + Vite** frontend that provides a modern UI with preview, drag & drop, progress bar, and a clean visualization of detected tags.
-- Optional extras that increase technical quality: **Docker support** and **automated tests**.
+- A **Node.js + Express** backend that processes image uploads and connects to OpenAI Vision
+- A **React + TypeScript + Vite** frontend with preview, drag & drop, progress bar, and tag visualization
+
+---
+
+# 🔧 **Requirements**
+
+Before running the project, install:
+
+- **Node.js v18+** (recommended: Node.js 18 LTS)
+- **npm v8+** (bundled with Node)
+
+You can check your versions with:
+
+```bash
+node -v
+npm -v
+```
 
 ---
 
@@ -15,7 +30,7 @@ The project includes:
 
 ### **Backend**
 
-- Node.js
+- Node.js v18
 - Express
 - TypeScript
 - Multer
@@ -25,7 +40,7 @@ The project includes:
 
 ### **Frontend**
 
-- React
+- React v18
 - TypeScript
 - Vite
 - Axios
@@ -66,7 +81,7 @@ image-analyzer-ia/
 
 ---
 
-## 🔧 **Backend Setup**
+# 🔧 **Backend Setup**
 
 ### **1. Install dependencies**
 
@@ -77,7 +92,7 @@ npm install
 
 ### **2. Configure environment variables**
 
-Create a `.env` file inside `/backend`:
+Inside `/backend`, create a `.env` file:
 
 ```
 OPENAI_API_KEY=your-openai-api-key
@@ -92,14 +107,14 @@ Development:
 npm run dev
 ```
 
-Production build:
+Production:
 
 ```bash
 npm run build
 npm start
 ```
 
-### **4. Test the API**
+### **4. API Endpoints**
 
 Health:
 
@@ -107,16 +122,16 @@ Health:
 GET http://localhost:3000/health
 ```
 
-Image analysis (POST):
+Image analysis:
 
-- Endpoint: `/api/analyze`
+- **POST** `/api/analyze`
 - Form-data key: `image`
-- Accepts: JPG, PNG, WEBP
-- Max size: 5MB
+- Accepted formats: **JPG, PNG, WEBP**
+- Max size: **5 MB**
 
 ---
 
-## 🎨 **Frontend Setup**
+# 🎨 **Frontend Setup**
 
 ### **1. Install dependencies**
 
@@ -131,52 +146,51 @@ npm install
 npm run dev
 ```
 
-Then open:
+Open:
 
 ```
 http://localhost:5173
 ```
 
-### **3. Features**
+### **Features**
 
 - Drag & drop upload
-- File selection UI
-- Live preview
-- Animated progress bar
-- AI-generated tags visualization
-- Error messages
+- Image preview
+- Progress bar with steps
+- AI-generated tags with confidence level
 - Responsive design
+- Error feedback for invalid files or failures
 
 ---
 
-## 🐳 **Run With Docker**
+# 🐳 **Docker Setup**
 
 From the project root:
 
-### **1. Build the images**
+### **1. Build containers**
 
 ```bash
 docker compose build
 ```
 
-### **2. Start the services**
+### **2. Start containers**
 
 ```bash
 docker compose up
 ```
 
-### **3. Access the app**
+### **3. Access**
 
 - Frontend: [http://localhost:5173](http://localhost:5173)
 - Backend: [http://localhost:3000/health](http://localhost:3000/health)
 
-The frontend communicates with the backend automatically.
+The frontend interacts with the backend without extra configuration.
 
 ---
 
-## 🧪 **Testing (Backend)**
+# 🧪 **Backend Testing**
 
-The backend includes automated tests for core behavior.
+Automated tests are included for core behavior.
 
 ### **Run tests:**
 
@@ -185,20 +199,24 @@ cd backend
 npm test
 ```
 
-### **Coverage**
+### **Covered Scenarios**
 
 - `/health` endpoint
-- File validation
-- Upload errors
-- Successful analysis using mocked OpenAI service
+- Missing file
+- Invalid file type
+- Valid file with mocked OpenAI response
 
-No external calls are made during tests.
+Tests run offline without external API calls.
 
 ---
 
-## 📌 **Environment Variables**
+# 📌 **Environment Variables**
 
 | Variable       | Description                  |
 | -------------- | ---------------------------- |
 | OPENAI_API_KEY | API key for OpenAI Vision    |
 | PORT           | Backend port (default: 3000) |
+
+# 🖼️ **Image Analyzer IA - Demo**
+
+https://1drv.ms/v/c/fe0a5dd3f414da9f/EbmAV3qrLFBLsws0VaMyDBgB1Vl1D4FwV0pCPoWfoJdppw?e=e5uJB0
